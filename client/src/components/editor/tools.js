@@ -1,8 +1,6 @@
 import Paragraph from "@editorjs/paragraph";
-
 import LinkTool from "@editorjs/link";
 import Image from "@editorjs/image";
-
 import Header from "@editorjs/header";
 
 export const EDITOR_JS_TOOLS = {
