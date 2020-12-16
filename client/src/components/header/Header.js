@@ -8,7 +8,7 @@ import fileIcon from "../../resorces/icons/report.svg";
 
 const HeaderContainer = styled.header`
   width: 100%;
-  height:25vh;
+  height: 25vh;
   background-image: ${({ background }) => {
       return background ? background : ";";
     }}
@@ -38,6 +38,7 @@ const HeaderContainer = styled.header`
 
     ul {
       align-items: center;
+
       list-style: none;
       display: flex;
       justify-content: space-between;
