@@ -1,24 +1,20 @@
 import styled from "styled-components";
 import { Slide } from "react-reveal";
 
-import {
-  About,
-  Calender,
-  Map,
-  News,
-  Top5,
-  Honorable,
-  Card,
-} from "../../section/cards/Cards";
+import { Calender, Map, Honorable, Card } from "../../section/cards/Cards";
 import { CardSection, Section } from "../../section/Section";
-
+import colors from "../../../styles/colors";
 import RenderBurger from "../../burger3d/Burger";
 import nameIcon from "../../../resorces/icons/Hamburgigi-hr.svg";
 
 import burger001 from "../../../resorces/images/burger001.jpg";
 import burger002 from "../../../resorces/images/burger002.jpg";
 import burger003 from "../../../resorces/images/burger003.jpg";
-
+import About from "../../Cards/about/About2";
+import News from "../../Cards/hadashim/hadashim";
+import Top5 from "../../Cards/topfive/top5";
+import Planed from "../../Cards/plans/plans";
+import PageView from "../../section2/section";
 const Container = styled.main`
   overflow: hidden;
   display: grid;
@@ -40,17 +36,35 @@ const Container = styled.main`
 const Home = () => {
   return (
     <Container>
-      <Section color='space' >
-        <img src={nameIcon} alt="" style={{ zIndex: 2, width:'80%', display:'block' ,margin:'auto'}} />
+      <Section color="space">
+        <img
+          src={nameIcon}
+          alt=""
+          style={{ zIndex: 2, width: "80%", display: "block", margin: "auto" }}
+        />
         <RenderBurger />
       </Section>
 
-      <CardSection color="blue">
+      <PageView bgcolor={colors.bggrey}>
         <Slide bottom>
-          <About color="orange" />
-          <Top5 color="orange" />
+          <About />
         </Slide>
-      </CardSection>
+      </PageView>
+      <PageView bgcolor={colors.bggrey}>
+        <Slide bottom>
+          <Top5 />
+        </Slide>
+      </PageView>
+      <PageView bgcolor={colors.bggrey}>
+        <Slide bottom>
+          <News />
+        </Slide>
+      </PageView>
+      <PageView bgcolor={colors.bggrey}>
+        <Slide bottom>
+          <Planed />
+        </Slide>
+      </PageView>
 
       <Section color="purple">
         <Card color="orange">
@@ -81,16 +95,6 @@ const Home = () => {
           alt=""
         />
       </Section>
-
-      <CardSection color="orange">
-        <Slide bottom>
-          <Map color="blue" />
-          <section>
-            <Calender color="blue" />
-            <News color="blue" />
-          </section>
-        </Slide>
-      </CardSection>
 
       {/* סקשן של איתי של מה שהוא אכל  */}
     </Container>

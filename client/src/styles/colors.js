@@ -1,0 +1,17 @@
+export default {
+  mainOrange: "#e67800",
+  secondaryOrange: "#ff9019",
+  thirdlyOrange: "#994f00",
+  mainBlue: "#007099",
+  secondBlue: "#00a9e6",
+  lightgray: "#e0e0e0",
+  darkergray: "#888888",
+  darkestgray: "#696969",
+  black: "#333",
+  white: "#eeeeee",
+  shadowgrey: "#393e46",
+  shadowblack: "#222831",
+  teal: "#00adb5",
+  bgblack: "#222831",
+  bggrey: "#252a34",
+};

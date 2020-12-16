@@ -5,7 +5,7 @@ import Home from "../pages/home/Home";
 import { Switch, Route } from "react-router-dom";
 
 import Map from "../pages/Map/Map";
-import SendReview from "../pages/send-review/SendReview";
+import SendReview from "../pages/Send-Review/SendReview";
 import Floter from "../floter/Floter";
 
 const Container = styled.div`
