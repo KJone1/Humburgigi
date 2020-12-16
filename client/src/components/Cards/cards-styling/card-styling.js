@@ -18,7 +18,7 @@ export const StyledCardContainer = css`
 `;
 
 export const StyledHeader = styled.h2`
-  color: ${colors.bgblack};
+  color: ${colors.darkred};
   text-align: center;
   padding: 0.5em;
 `;

@@ -12,8 +12,8 @@ const Container = styled.div`
   min-height: 100vh;
   background: var(--light-gray);
   position: relative;
-  background-image: url(${background});
-  background-repeat: round;
+  /* background-image: url(${background});
+  background-repeat: round; */
 `;
 
 const App = () => {

@@ -14,4 +14,6 @@ export default {
   teal: "#00adb5",
   bgblack: "#222831",
   bggrey: "#252a34",
+  red: "#ff2e63",
+  darkred: "#88304e",
 };
