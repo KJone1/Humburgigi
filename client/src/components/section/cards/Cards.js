@@ -4,9 +4,7 @@ import styled from "styled-components";
 
 const CardContainer = styled.div`
   width: 80%;
-  max-height: calc(
-    100vh - 40px - 2em
-  ); // -40px for drop shadow  -2em for container padding
+  max-height: ${ ({isDymHeight}) => { return isDymHeight ? ";" : "calc(100vh - 40px - 2em);"}} // -40px for drop shadow  -2em for container padding}
   margin: 0 auto;
   border-radius: 30px;
   padding: 2em;
@@ -38,8 +36,8 @@ const CardContainer = styled.div`
 
 ///////////////////// Card //////////////////////
 
-export const Card = ({ color, children }) => {
-  return <CardContainer color={color}>{children}</CardContainer>;
+export const Card = (props) => {
+  return <CardContainer {...props}>{props.children}</CardContainer>;
 };
 
 //////////////////// Page Info //////////////////
