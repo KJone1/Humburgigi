@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
-
+import "../../styles/fonts.css";
 import mapIcon from "../../resorces/icons/map.svg";
 import allIcon from "../../resorces/icons/places.svg";
 import fileIcon from "../../resorces/icons/report.svg";
@@ -51,63 +51,58 @@ const HeaderContainer = styled.header`
     }
   }
 `;
+const StyledNavLink = styled(NavLink)`
+  // background-color: blue;
 
-const Link = styled.li`
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 0.5em;
-
-  /* margin: 1em; */
-  img {
-    transition: width ease-in-out 200ms;
-    max-width: var(--nav-img-sz);
-
-    :hover {
-      width: calc(var(--nav-img-sz) * 1.2);
+  position: relative;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Varela Round";
+  /* color: black !important; */
+  &.active {
+    img {
+      height: 50px;
+      width: 50px;
     }
-    .st0 {
-      fill: #3a332d;
-      stroke: #000000;
-      stroke-width: 0.5;
-      stroke-miterlimit: 10;
-    }
-
-    h4 {
-      position: absolute;
+    h3 {
+      font-size: 24px;
+      margin-bottom: 5px;
     }
   }
 `;
 
-function Header() {
-  const [selected, setSelected] = useState(3);
+const Link = styled.li`
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
 
+  /* margin: 1em; */
+`;
+
+function Header() {
   return (
     <HeaderContainer>
       <nav>
         <ul>
           <Link>
-            <NavLink onClick={() => setSelected(0)} to="/send">
+            <StyledNavLink to="/send">
               <h3>שלח סיקור</h3>
-              <img src={fileIcon} alt="form" />
-              {selected === 0 ? <h4>*</h4> : null}
-            </NavLink>
+              <img src={fileIcon} alt="form" height="40px" width="40px" />
+            </StyledNavLink>
           </Link>
 
           <Link>
-            <NavLink onClick={() => setSelected(1)} to="/map">
+            <StyledNavLink to="/map">
               <h3>מפה</h3>
-              <img src={mapIcon} alt="map" />
-              {selected === 1 ? <h3>*</h3> : null}
-            </NavLink>
+              <img src={mapIcon} alt="map" height="40px" width="40px" />
+            </StyledNavLink>
           </Link>
 
           <Link>
-            <NavLink onClick={() => setSelected(3)} to="/">
+            <StyledNavLink exact to="/">
               <h3>הכל</h3>
-              <img src={allIcon} alt="all" />
-              {selected === 3 ? <h3>*</h3> : null}
-            </NavLink>
+              <img src={allIcon} alt="all" height="40px" width="40px" />
+            </StyledNavLink>
           </Link>
         </ul>
       </nav>
