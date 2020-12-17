@@ -16,4 +16,5 @@ export default {
   bggrey: "#252a34",
   red: "#ff2e63",
   darkred: "#88304e",
+  lightgreen: "#7ac7c4",
 };
