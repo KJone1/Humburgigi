@@ -1,15 +1,16 @@
 import React from "react";
 import styled from "styled-components";
 import spacebg from "../../resorces/background/space.svg";
+import blueStripes from "../../resorces/background/blue-stripes.svg";
 const StyledBg = styled.div`
   display: flex;
   justify-content: center;
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  /* background-image: url(${spacebg}); */
-  /* background-size: cover; */
-  background-color: ${(props) => props.color};
+  background-image: url(${blueStripes});
+  background-size: fill;
+  /* background-color: ${(props) => props.color}; */
   display: grid;
   /* grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr;
