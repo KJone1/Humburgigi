@@ -18,7 +18,7 @@ export const StyledCardContainer = css`
   margin-bottom: 50px;
   font-family: "Varela Round";
   color: white;
-  font-size: 24px;
+  font-size: 23px;
   background: rgba(255, 255, 255, 0.4);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   backdrop-filter: blur(4px);
@@ -29,7 +29,7 @@ export const StyledCardContainer = css`
 
 export const StyledHeader = styled.h2`
   /* color: ${colors.mainBlue}; */
-  font-size: 2em;
+  font-size: 1.8em;
   color: white;
   text-align: center;
   padding: 0 0 0.2em;
