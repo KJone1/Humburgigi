@@ -10,10 +10,15 @@ import Floter from "../floter/Floter";
 
 const Container = styled.div`
   min-height: 100vh;
-  background: var(--light-gray);
+  /* background: var(--light-gray); */
   position: relative;
   /* background-image: url(${background});
-  background-repeat: round; */
+  
+  background-repeat: round;  */
+  /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNSrhbqKsSe-rEL3YYKyUZj9eZ1SxB3_GVDw&usqp=CAU"); */
+  /* background-image: url("https://images.unsplash.com/photo-1557682257-2f9c37a3a5f3?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&q=80"); */
+  background-size: cover;
+  background-image: url("https://mewallpaper.com/thumbnail/abstract/7958-orange-yellow-gradient-background-hq-image-free-wallpaper.jpg");
 `;
 
 const App = () => {

@@ -8,8 +8,10 @@ const StyledBg = styled.div`
   overflow: hidden;
   height: 100vh;
   width: 100vw;
-  background-image: url(${blueStripes});
-  background-size: fill;
+  /* background-image: url(${blueStripes}); */
+  /* background-image: url("https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxleHBsb3JlLWZlZWR8MjJ8fHxlbnwwfHx8&w=1000&q=80");
+  background-size: cover; */
+
   /* background-color: ${(props) => props.color}; */
   display: grid;
   /* grid-template-columns: 1fr 1fr;

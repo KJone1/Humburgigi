@@ -1,12 +1,11 @@
 import styled from "styled-components";
 import { Slide } from "react-reveal";
-
+import React from "react";
 import { Calender, Map, Honorable, Card } from "../../section/cards/Cards";
 import { CardSection, Section } from "../../section/Section";
 import colors from "../../../styles/colors";
 import RenderBurger from "../../burger3d/Burger";
 import nameIcon from "../../../resorces/icons/Hamburgigi-hr.svg";
-
 import burger001 from "../../../resorces/images/burger001.jpg";
 import burger002 from "../../../resorces/images/burger002.jpg";
 import burger003 from "../../../resorces/images/burger003.jpg";
@@ -15,6 +14,7 @@ import News from "../../Cards/hadashim/hadashim";
 import Top5 from "../../Cards/topfive/top5";
 import Planed from "../../Cards/plans/plans";
 import PageView from "../../section2/section";
+
 const Container = styled.main`
   overflow: hidden;
   display: grid;
@@ -42,6 +42,7 @@ const Home = () => {
           alt=""
           style={{ zIndex: 2, width: "80%", display: "block", margin: "auto" }}
         />
+
         <RenderBurger />
       </Section>
 

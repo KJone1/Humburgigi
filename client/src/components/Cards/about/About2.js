@@ -9,6 +9,7 @@ import {
 const StyledAboutContainer = styled.div`
   ${StyledCardContainer}
 `;
+
 //////////////////// About /////////////////////
 
 const About = () => {

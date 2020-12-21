@@ -30,7 +30,7 @@ const StyledTop5Container = styled.div`
   ${StyledCardContainer}
 `;
 const Top5list = styled.ul`
-  padding: 2em;
+  padding: 0 2em 0;
   text-align: center;
 
   li {

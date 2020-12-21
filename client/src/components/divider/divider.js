@@ -5,7 +5,7 @@ const StyledDivider = styled.span`
   margin: 0 auto;
   display: block;
   width: 50%;
-  background: black;
+  background: white;
   margin-bottom: 20px;
 `;
 
