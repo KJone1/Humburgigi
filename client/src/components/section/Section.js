@@ -29,6 +29,13 @@ const SectionContainer = styled.article`
     padding: 0.5em;
   }
 
+  section {
+  }
+
+  .section-img {
+    position: absolute;
+  }
+
   height: ${({ height }) => height || "100vh"};
 
   background-image: ${({ color }) => {
@@ -53,24 +60,7 @@ const SectionContainer = styled.article`
       default:
         return ";";
     }
-  }}}
-
-  @media (max-width: 675px){
-    background-image: ${({ color }) => {
-      switch (color) {
-        case "space":
-          return `url(${space});
-                background-repeat: no-repeat;
-                background-size: cover;`;
-        case "earth":
-          return `url(${earth765});   
-                background-repeat: no-repeat;
-                background-size: cover;`;
-        default:
-          return ";";
-      }
-    }}}
-
+  }};
 `;
 
 const CardSectionContainer = styled(SectionContainer)`
@@ -103,9 +93,37 @@ const CardSectionContainer = styled(SectionContainer)`
 `;
 
 export const CardSection = ({ children, color }) => {
-  return <CardSectionContainer color={color}>{children}</CardSectionContainer>;
+  const get_source = (color) => {
+    switch (color) {
+      case "space":
+        return space;
+      case "earth":
+        return earth;
+    }
+  };
+
+  return (
+    <CardSectionContainer color={color}>
+      {/* <img id="section-img" src={get_source(space)} /> */}
+      {children}
+    </CardSectionContainer>
+  );
 };
 
 export const Section = (props) => {
-  return <SectionContainer {...props}>{props.children}</SectionContainer>;
+  const get_source = (color) => {
+    switch (color) {
+      case "space":
+        return space;
+      case "earth":
+        return earth;
+    }
+  };
+
+  return (
+    <SectionContainer transform={props.transform} {...props}>
+      {/* <img id="section-img" src={`${get_source(props.color)} `} /> */}
+      {props.children}
+    </SectionContainer>
+  );
 };

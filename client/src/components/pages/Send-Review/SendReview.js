@@ -1,10 +1,24 @@
-import Editor from "../../editor/Editor";
+import { useState } from "react";
 import { Section } from "../../section/Section";
 import { Card, PageInfo } from "../../section/cards/Cards";
 import questionMark from "../../../resorces/icons/question-mark.svg";
 import styled from "styled-components";
 
+import EditorJs from "react-editor-js";
+import { EDITOR_JS_TOOLS } from "./editor-tools";
+
+import axios from "axios";
+import config from "../../../config.json";
+
 const Container = styled.div`
+  text-align:center;
+
+  button {
+    display:block;
+    margin: 0 auto;
+    padding: 0.5em;
+  }
+
   > div {
     background-color: rgba(200, 200, 200, 0.5);
     margin-top: 1em;
@@ -32,6 +46,21 @@ const Container = styled.div`
 `;
 
 const SendReview = () => {
+  const [editorInstance, setEditorInstance] = useState({});
+
+  const handleSave = async () => {
+    const editorDate = await editorInstance.save();
+    axios.post(
+      `${config.proxy}${config.review.post}`,
+      { editorDate },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+  };
+
   return (
     <Container className="hr">
       <Section isCol={true} color="blue">
@@ -51,7 +80,11 @@ const SendReview = () => {
               -תמונה
             </p>
           </div>
-          <Editor />
+          <EditorJs
+            instanceRef={(instance) => setEditorInstance(instance)}
+            tools={EDITOR_JS_TOOLS}
+          />
+          <button onClick={() => handleSave()}>שלח</button>
         </Card>
       </Section>
     </Container>

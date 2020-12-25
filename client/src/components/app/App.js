@@ -7,6 +7,7 @@ import { Switch, Route } from "react-router-dom";
 import Map from "../pages/Map/Map";
 import SendReview from "../pages/send-review/SendReview";
 import Floter from "../floter/Floter";
+import Login from "../pages/login/Login";
 
 const Container = styled.div`
   min-height: 100vh;
@@ -26,7 +27,7 @@ const App = () => {
         <Route component={Home} exact path="/" />
         <Route component={Map} path="/map" />
         <Route component={SendReview} path="/send" />
-        {/* TODO: make functional component : Home page */}
+        <Route component={Login} path="/login" />
       </Switch>
     </Container>
   );
