@@ -1,0 +1,10 @@
+{
+    "password": {
+        "minLength": 8,
+        "maxLength": 255
+    },
+    "username": {
+        "minLength": 3,
+        "maxLength": 255
+    }
+}
