@@ -49,10 +49,13 @@ const SendReview = () => {
   const [editorInstance, setEditorInstance] = useState({});
 
   const handleSave = async () => {
-    const editorDate = await editorInstance.save();
+    const editorData = await editorInstance.save();
+
+    //This create unusual behaviour
     axios.post(
       `${config.proxy}${config.review.post}`,
-      { editorDate },
+      { author: "itayBenGigush"
+        ,burgerData: editorData },
       {
         headers: {
           "Content-Type": "application/json",
