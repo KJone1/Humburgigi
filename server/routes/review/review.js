@@ -1,8 +1,9 @@
 const route = require("express").Router();
 const jwt = require("jsonwebtoken");
 const verifyToken = require("../../tools/jwt/jwt").authenticateToken;
+const log = require("../../tools/log/log");
 
-const burgerPost = require("../../db/Schemas/Reviews").Burger;
+const sendBurger = require("../../db/Schemas/Reviews").addBurgerMiddleware
 
 route.get("/", (req, res) => {
   res.send("review");
@@ -12,28 +13,9 @@ route.get("/authen", verifyToken, (req, res) => {
   res.send("authenticated");
 });
 
-route.post("/", (req, res) => {
-  
-  // Get user based on id from mongodb
+route.post("/", sendBurger,(req, res) => {
 
-  // manipulate the burger data
-
-  console.log(req.body.author,req.body.burgerData)
-
-  let newBurgerPost = new burgerPost({
-    author: req.body.author,
-    body: req.body.burgerData,
-    comments: null,
-    hidden: false,
-    meta: {
-      votes: 0,
-      favs: 0,
-    },
-  });
-
-  console.log(newBurgerPost)
-
-  //newBurgerPost.save();
+  // send user response
   res.status(200).json({
     success: {
       code: 1,
