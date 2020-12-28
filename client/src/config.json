@@ -1,9 +1,9 @@
 {
     "proxy": "http://localhost:5000",
-    "login":{
-        "post":"/login"
+    "auth": {
+        "login": "/auth/login"
     },
-    "review":{
-        "post":"/review"
+    "review": {
+        "post": "/review"
     }
 }

@@ -60,6 +60,7 @@ const SendReview = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        withCredentials: true
       }
     );
   };

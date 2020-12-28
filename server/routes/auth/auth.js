@@ -1,8 +1,8 @@
 const route = require("express").Router();
 const bcrypt = require("bcrypt");
-const uid = require("uuid").v4;
 const fs = require("fs");
 const jwt = require("jsonwebtoken");
+const log = require("../../tools/log/log");
 
 let [fPassword, fUsername] = fs.readFileSync("./user").toString().split("\r\n");
 
@@ -12,13 +12,18 @@ route.get("/", (req, res) => {
   res.send("auth");
 });
 
-route.post("/login", async (req, res) => {
+route.post("/login", isGigi, async (req, res) => {
   const { password, username } = req.body;
 
-  if (!(await isGigi(req, res, password, username))) return;
+  if (!req.user.isGigi) return;
 
-  req.session.token = jwt.sign({role: "admin"}, process.env.TOKEN_SECRET, { expiresIn: '1800s' });
-  
+  res.cookie(
+    "authorization",
+    jwt.sign({ role: "admin" }, process.env.TOKEN_SECRET, {
+      expiresIn: "1800s",
+    })
+  );
+
   res.status(200).json({
     success: {
       from: "auth",
@@ -29,10 +34,12 @@ route.post("/login", async (req, res) => {
   });
 });
 
-route.post("/update", async (req, res) => {
+route.post("/update", isGigi, async (req, res) => {
   const { password, username, nPassword, nUsername } = req.body;
 
-  if (!(await isGigi(req, res, password, username))) return;
+  if (!(req.user.isGigi)) {
+    
+  }
 
   let newPassword = "";
   let newUsername = "";
@@ -56,7 +63,7 @@ route.post("/update", async (req, res) => {
   try {
     fs.writeFileSync("./user", data);
   } catch (error) {
-    res.status(501).json({
+    log({
       error: {
         from: "auth",
         path: "/update",
@@ -80,10 +87,13 @@ route.post("/update", async (req, res) => {
   });
 });
 
-const isGigi = async (req, res, password, username) => {
+const isGigi = async (req, res, next) => {
+  const { password, username } = req.body;
+
   // Checking if receiving data is correct
   if (!validator.isPassword(password) || !validator.isUsername(username)) {
-    console.log("params are not correct");
+    req.user.isGigi = false;
+    next();
     res.status(401).json({
       error: {
         from: "auth",
@@ -97,6 +107,9 @@ const isGigi = async (req, res, password, username) => {
 
   // Checking if username is correct
   if (username !== fUsername) {
+    req.user.isGigi = false;
+    next();
+
     res.status(401).json({
       error: {
         from: "auth",
@@ -110,6 +123,8 @@ const isGigi = async (req, res, password, username) => {
 
   // Checking if password is correct
   if (!(await bcrypt.compare(password, fPassword))) {
+    req.user.isGigi = false;
+    next();
     res.status(401).json({
       error: {
         from: "auth",
@@ -121,6 +136,9 @@ const isGigi = async (req, res, password, username) => {
     return false;
   }
 
+  req.user.isGigi = true;
+
+  next();
   return true;
 };
 

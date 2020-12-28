@@ -24,13 +24,13 @@ const Login = () => {
   const submitHandle = (e) => {
     e.preventDefault();
     axios.post(
-      `${config.proxy}${config.login.post}?username=${username}&password=${password}`,
+      `${config.proxy}${config.auth.login}`,
       { username, password },
       {
         headers: {
           "Content-Type": "application/json",
         },
-        withCredentials: true,
+        // withCredentials: true,
       }
     );
   };

@@ -3,13 +3,20 @@ const app = express();
 const cors = require("cors");
 const session = require("express-session");
 const bodyParser = require("body-parser");
-require('./db/Client')
+const cookieParser = require("cookie-parser");
+require("./db/Client");
 
 const port = 5000;
 
 require("dotenv").config();
+var corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  credentials: true,
+  exposedHeaders: ["set-cookie"],
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(
   session({
     secret: process.env.SESSION_PASSWORD,
@@ -17,6 +24,7 @@ app.use(
     saveUninitialized: true,
   })
 );
+app.use(cookieParser());
 app.use(bodyParser.json());
 
 require("./routes/api").init(app);
